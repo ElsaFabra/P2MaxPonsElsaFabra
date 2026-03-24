@@ -4,7 +4,8 @@ import prog2.vista.ExcepcioCamping;
 
 public class LlistaAllotjaments implements InLlistaAllotjaments{
     @Override
-    public void afegirAllotjament(Allotjament allotjament) throws ExcepcioCamping {
+    public void afegirAllotjament(
+            Allotjament allotjament) throws ExcepcioCamping {
 
     }
 
