@@ -9,15 +9,36 @@ public abstract class Allotjament implements InAllotjament {
     private String identificador; //Nom de l'identificador de l'allotjament
     private long estadaMinimaALTA; // Estada minima a l'allotjament en temporada alta
     private long estadaMinimaBAIXA; // Estada minima a l'allotjament en temporada baixa
+    private boolean estatAllotjament;
+    private String estatIluminacio;
 
     //Constructor de la classe allotjament i inicialització dels atributs aprofitant els setters
-    public Allotjament(String nom, String identificador, long estadaMinimaALTA, long estadaMinimaBAIXA) {
+    public Allotjament(String nom, String identificador, long estadaMinimaALTA, long estadaMinimaBAIXA, boolean estatAllotjament, String estatIluminacio) {
         setNom(nom);
         setId(identificador);
         setEstadaMinima(estadaMinimaALTA, estadaMinimaBAIXA);
+        setEstatAllotjament(estatAllotjament);
+        setEstatIluminacio(estatIluminacio);
     }
 
     //Getters i setters de cada atribut privat per accedir a ells
+
+    public boolean getEstatAllotjament() {
+        return estatAllotjament;
+    }
+
+    public void setEstatAllotjament(boolean estatAllotjament) {
+        this.estatAllotjament = estatAllotjament;
+    }
+
+    public String getEstatIluminacio() {
+        return estatIluminacio;
+    }
+
+    public void setEstatIluminacio(String estatIluminacio) {
+        this.estatIluminacio = estatIluminacio;
+    }
+
     @Override
     public String getNom() {
         return nom;
@@ -56,7 +77,6 @@ public abstract class Allotjament implements InAllotjament {
 
     /**Declaració del mètode correcteFuncionament que aplicaré després a cada subclasse
      * modificada segons els requisits de cadascuna**/
-    @Override
     public abstract boolean correcteFuncionament();
 
     //Mètode toString que retorna amb un string totes les dades d'aquesta classe

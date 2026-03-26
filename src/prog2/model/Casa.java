@@ -3,7 +3,7 @@ package prog2.model;
 /** Definició de la subclasse d'Allotjament que representa
  * la Casa. Té herència d'Allotjament.
  * **/
-public abstract class Casa extends Allotjament {
+public abstract class Casa extends Allotjament{
     //Declaració dels atributs privats de Casa
     private String mida; //Mida de la casa
     private int habitacions; //Nombre d'habitacions
@@ -13,8 +13,8 @@ public abstract class Casa extends Allotjament {
      * atributs d'Allotjament que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Casa **/
-    public Casa(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
-        super(nom, idAllotjament, estadaMinimaALTA, estadaMinimaBAIXA);
+    public Casa(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA, boolean estatAllotjament, String estatIluminacio) {
+        super(nom, idAllotjament, estadaMinimaALTA, estadaMinimaBAIXA, estatAllotjament, estatIluminacio);
         //Com cada tipus de casa té estades minimes diferents, aquí no l'inicialitzo amb cao valor
         setMida(mida);
         setHabitacions(habitacions);
