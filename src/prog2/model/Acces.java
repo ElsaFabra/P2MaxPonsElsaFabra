@@ -1,8 +1,17 @@
 package prog2.model;
 
-public abstract class Acces implements InAcces{
-    public Acces(){
+import java.util.ArrayList;
 
+public abstract class Acces implements InAcces{
+    private String nom;
+    private boolean accesibilitat;
+    private boolean estat;
+    private ArrayList<Allotjament> allotjaments;
+
+    public Acces(String nom, boolean accesibilitat, boolean estat, LlistaAllotjaments llistaAllotjaments){
+        this.nom = nom;
+        this.accesibilitat = accesibilitat;
+        this.estat = estat;
     }
 
     @Override
@@ -19,12 +28,6 @@ public abstract class Acces implements InAcces{
     public void obrirAcces() {
 
     }
-
-    @Override
-    public boolean isAccessibilitat() {
-        return false;
-    }
-
 
     @Override
     public String getNom() {

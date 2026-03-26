@@ -11,7 +11,7 @@ public class MobilHome extends Casa{
      * després aprofito els setters per inicialitzar els altres
      * atributs de MobilHome **/
     public MobilHome(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
-        super(nom, idAllotjament, mida, habitacions, placesPersones, 3, 5);
+        super(nom, idAllotjament, mida, habitacions, placesPersones, 3, 5, true, "100%");
         //Estada Minima en temporada alta de 3 dies i en estada minima en temporada baixa de 5 dies
         setTerrassaBarbacoa(terrassaBarbacoa);
     }
@@ -36,11 +36,9 @@ public class MobilHome extends Casa{
 
     @Override
     public void tancarAllotjament(TascaManteniment tasca) {
-
     }
 
     @Override
     public void obrirAllotjament() {
-
     }
 }
