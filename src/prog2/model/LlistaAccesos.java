@@ -2,15 +2,23 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.util.ArrayList;
+
 public class LlistaAccesos implements InLlistaAccessos{
+    private ArrayList<Acces> accessos;
+
+    public LlistaAccesos(){
+        this.accessos = new ArrayList<>();
+    }
+
     @Override
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
-
+        accessos.add(acc);
     }
 
     @Override
     public void buidar() {
-
+        accessos.clear();
     }
 
     @Override

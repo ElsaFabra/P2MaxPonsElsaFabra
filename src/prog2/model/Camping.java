@@ -10,9 +10,15 @@ import java.util.Iterator;
 
 public class Camping implements InCamping{
     private String nom;
+    private LlistaAllotjaments llistaAllotjaments;
+    private LlistaAccessos llistaAccessos;
+    private LlistaTasquesManteniment llistaTasques;
 
-    public Camping(String nom){
+    public Camping(String nom) {
         this.nom = nom;
+        this.llistaAllotjaments = new LlistaAllotjaments();
+        this.llistaAccessos = new LlistaAccessos();
+        this.llistaTasques = new LlistaTasquesManteniment();
     }
 
     @Override

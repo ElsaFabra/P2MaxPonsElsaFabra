@@ -13,8 +13,8 @@ public abstract class Casa extends Allotjament{
      * atributs d'Allotjament que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Casa **/
-    public Casa(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA, boolean estatAllotjament, String estatIluminacio) {
-        super(nom, idAllotjament, estadaMinimaALTA, estadaMinimaBAIXA, estatAllotjament, estatIluminacio);
+    public Casa(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
+        super(nom, idAllotjament, estatAllotjament, estatIluminacio, estadaMinimaALTA, estadaMinimaBAIXA);
         //Com cada tipus de casa té estades minimes diferents, aquí no l'inicialitzo amb cao valor
         setMida(mida);
         setHabitacions(habitacions);

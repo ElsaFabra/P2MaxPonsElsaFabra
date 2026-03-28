@@ -14,8 +14,8 @@ public class Bungalow extends Casa{
      * atributs de casa que s'inicialitzen fent ús del súper, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Bungalow. **/
-    public Bungalow(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
-        super(nom, idAllotjament, mida, habitacions, placesPersones, 7, 4, true, "100%");
+    public Bungalow(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
+        super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, 7, 4);
         //Estada Minima en temporada alta de 7 dies i en estada minima en temporada baixa de 4 dies
         setPlacesParquing(placesParquing);
         setTerrassa(terrassa);

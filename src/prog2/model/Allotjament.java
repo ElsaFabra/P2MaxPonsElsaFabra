@@ -13,12 +13,12 @@ public abstract class Allotjament implements InAllotjament {
     private String estatIluminacio;
 
     //Constructor de la classe allotjament i inicialització dels atributs aprofitant els setters
-    public Allotjament(String nom, String identificador, long estadaMinimaALTA, long estadaMinimaBAIXA, boolean estatAllotjament, String estatIluminacio) {
+    public Allotjament(String nom, String identificador, boolean estatAllotjament, String estatIluminacio, long estadaMinimaALTA, long estadaMinimaBAIXA) {
         setNom(nom);
         setId(identificador);
-        setEstadaMinima(estadaMinimaALTA, estadaMinimaBAIXA);
         setEstatAllotjament(estatAllotjament);
         setEstatIluminacio(estatIluminacio);
+        setEstadaMinima(estadaMinimaALTA, estadaMinimaBAIXA);
     }
 
     //Getters i setters de cada atribut privat per accedir a ells

@@ -12,8 +12,8 @@ public class Glamping extends Casa{
      * atributs de casa que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Glamping **/
-    public Glamping(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, String material, boolean casaMascota){
-        super(nom, idAllotjament, mida, habitacions, placesPersones, 3, 3, true, "100%");
+    public Glamping(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, String material, boolean casaMascota){
+        super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, 3, 3);
         //Estada Minima en temporada alta de 3 dies i en estada minima en temporada baixa de 3 dies
         setMaterial_(material);
         setCasaMascota_(casaMascota);

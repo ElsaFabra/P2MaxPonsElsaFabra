@@ -13,11 +13,12 @@ public class BungalowPremium extends Bungalow{
      * després aprofito els setters per inicialitzar els altres
      * atributs de BungalowPremium **/
     public BungalowPremium(String nom, String idAllotjament,
-                           String mida, int habitacions,
+                           boolean estatAllotjament, String estatIluminacio,
+                           float mida, int habitacions,
                            int placesPersones, int placesParquing,
                            boolean terrassa, boolean tv, boolean aireFred,
                            boolean serveisExtra, String codiWifi){
-        super(nom, idAllotjament, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
+        super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, placesParquing, terrassa, tv, aireFred);
         //No apareix l'estadaMinima perquè és la mateixa que la del Bungalow
         setServeisExtra(serveisExtra);
         setCodiWifi(codiWifi);
