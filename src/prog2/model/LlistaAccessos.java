@@ -2,12 +2,13 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LlistaAccesos implements InLlistaAccessos{
+public class LlistaAccessos implements InLlistaAccessos, Serializable {
     private ArrayList<Acces> accessos;
 
-    public LlistaAccesos(){
+    public LlistaAccessos(){
         this.accessos = new ArrayList<>();
     }
 
@@ -23,7 +24,7 @@ public class LlistaAccesos implements InLlistaAccessos{
 
     @Override
     public String llistarAccessos(boolean estat) throws ExcepcioCamping {
-        return "";
+    return "";
     }
 
     @Override

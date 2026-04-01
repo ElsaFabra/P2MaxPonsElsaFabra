@@ -53,7 +53,6 @@ public abstract class Acces implements InAcces, Serializable {
         return llista;
     }
 
-    // elsa no se si al toString els allotjaments s'ha de posar aixi (està al final):
     public String toString(){
         return "Acces{nom=" + nom + ", estat=" + estat + "}";
     }

@@ -25,7 +25,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
 
     //Getters i setters de cada atribut privat per accedir a ells
 
-    public boolean getEstatAllotjament() {
+    public boolean isOperatiu() {
         return estatAllotjament;
     }
 
@@ -33,7 +33,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
         this.estatAllotjament = estatAllotjament;
     }
 
-    public String getEstatIluminacio() {
+    public String getIluminacio() {
         return estatIluminacio;
     }
 
@@ -88,4 +88,19 @@ public abstract class Allotjament implements InAllotjament, Serializable {
                 ", estada mínima en temp ALTA: " + estadaMinimaALTA +
                 ", estada mínima en temp BAIXA: " + estadaMinimaBAIXA + ".";
     }
+
+
+    @Override
+    public void tancarAllotjament(TascaManteniment tasca) {
+        this.setEstatAllotjament(false);
+        this.setEstatIluminacio(tasca.getIluminacioAllotjament());
+    }
+
+    @Override
+    public void obrirAllotjament() {
+        this.setEstatAllotjament(true);
+        this.setEstatIluminacio("100");
+
+    }
+
 }

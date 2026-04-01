@@ -1,6 +1,8 @@
 package prog2.model;
 
-public class TascaManteniment implements InTascaManteniment{
+import java.io.Serializable;
+
+public class TascaManteniment implements InTascaManteniment, Serializable {
 
     public static enum TipusTascaManteniment {
         Reparacio,
@@ -15,8 +17,8 @@ public class TascaManteniment implements InTascaManteniment{
     private TipusTascaManteniment tipus;
     private int dies;
 
-    public TascaManteniment(int numTasca, Allotjament allotjament, String data,
-                            TipusTascaManteniment tipus, int dies){
+    public TascaManteniment(int num, TipusTascaManteniment tipus, Allotjament allotjament, String data,
+                            int dies){
     this.num = num;
     this.allotjament = allotjament;
     this.data = data;

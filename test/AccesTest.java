@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import prog2.model.LlistaAllotjaments;
 import prog2.vista.ExcepcioCamping;
 import prog2.model.Acces;
 

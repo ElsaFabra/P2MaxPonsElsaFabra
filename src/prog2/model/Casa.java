@@ -7,7 +7,7 @@ import java.io.Serializable;
  * **/
 public abstract class Casa extends Allotjament implements Serializable {
     //Declaració dels atributs privats de Casa
-    private String mida; //Mida de la casa
+    private float mida; //Mida de la casa
     private int habitacions; //Nombre d'habitacions
     private int placesPersones; //Quantitat de persones que caben
 
@@ -15,7 +15,7 @@ public abstract class Casa extends Allotjament implements Serializable {
      * atributs d'Allotjament que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Casa **/
-    public Casa(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, String mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
+    public Casa(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
         super(nom, idAllotjament, estatAllotjament, estatIluminacio, estadaMinimaALTA, estadaMinimaBAIXA);
         //Com cada tipus de casa té estades minimes diferents, aquí no l'inicialitzo amb cao valor
         setMida(mida);
@@ -25,9 +25,9 @@ public abstract class Casa extends Allotjament implements Serializable {
     }
 
     //Setters i getters per accedir als atributs privats
-    public String getMida() { return mida; }
+    public float getMida() { return mida; }
 
-    public void setMida(String mida) { this.mida = mida; }
+    public void setMida(float mida) { this.mida = mida; }
 
     public int getHabitacions() { return habitacions; }
 

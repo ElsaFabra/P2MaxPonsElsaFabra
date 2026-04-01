@@ -15,10 +15,10 @@ public class Parcela extends Allotjament implements Serializable {
      * atributs d'Allotjament que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de Parcela **/
-    public Parcela(String nom, String idAllotjament, float metres, boolean connexioElectrica) {
-        super(nom, idAllotjament,true, "100%", 4, 2);
+    public Parcela(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, boolean connexioElectrica) {
+        super(nom, idAllotjament,estatAllotjament, estatIluminacio, 4, 2);
         //Estada Minima en temporada alta de 4 dies i en estada minima en temporada baixa de 2 dies
-        setMida(metres);
+        setMida(mida);
         setConnexioElectrica(connexioElectrica);
     }
 

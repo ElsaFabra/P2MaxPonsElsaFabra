@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import prog2.model.Allotjament;
+import prog2.model.Parcela;
+import prog2.model.TascaManteniment;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

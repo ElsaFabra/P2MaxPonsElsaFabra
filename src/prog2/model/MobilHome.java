@@ -10,8 +10,8 @@ public class MobilHome extends Casa{
      * atributs de Casa que s'inicialitzen fent ús del super, i
      * després aprofito els setters per inicialitzar els altres
      * atributs de MobilHome **/
-    public MobilHome(String nom, String idAllotjament, String mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
-        super(nom, idAllotjament, mida, habitacions, placesPersones, 3, 5, true, "100%");
+    public MobilHome(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
+        super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, 3, 5);
         //Estada Minima en temporada alta de 3 dies i en estada minima en temporada baixa de 5 dies
         setTerrassaBarbacoa(terrassaBarbacoa);
     }
@@ -32,13 +32,5 @@ public class MobilHome extends Casa{
     @Override
     public String toString() {
         return super.toString() + ". Mobil-Home(Terrassa amb barbacoa = " + terrassaBarbacoa + ")";
-    }
-
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-    }
-
-    @Override
-    public void obrirAllotjament() {
     }
 }

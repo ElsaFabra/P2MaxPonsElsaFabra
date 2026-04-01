@@ -66,17 +66,8 @@ public class Bungalow extends Casa{
     //Mètode toString que retorna amb un string totes les dades d'aquesta classe
     @Override
     public String toString(){
-        return super.toString() + ". Bungalow(places de parquing = " + placesParquing +
-                ", terrassa = " + terrassa + ", televisio = " + tv + ", aire fred = " + aireFred + ")";
-    }
-
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-
-    }
-
-    @Override
-    public void obrirAllotjament() {
-
+        return super.toString() + ". Bungalow{places de parquing = " + placesParquing +
+                ", terrassa = " + terrassa + ", televisio = " + tv + ", aire fred = " + aireFred + "}";
     }
 }
+
