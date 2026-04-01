@@ -1,17 +1,18 @@
 package prog2.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Acces implements InAcces{
+public abstract class Acces implements InAcces, Serializable {
     private String nom;
-    private boolean accesibilitat;
     private boolean estat;
     private ArrayList<Allotjament> allotjaments;
 
-    public Acces(String nom, boolean accesibilitat, boolean estat, ArrayList<Allotjament> allotjaments) {
+    public Acces(String nom, boolean estat) {
         this.nom = nom;
-        this.accesibilitat = accesibilitat;
         this.estat = estat;
+        this.allotjaments = new ArrayList<>();
+
     }
 
     @Override
@@ -39,6 +40,10 @@ public abstract class Acces implements InAcces{
         return estat;
     }
 
+    public void setEstat(boolean estat){
+        this.estat = estat;
+    }
+
     @Override
     public LlistaAllotjaments getAAllotjaments() {
         LlistaAllotjaments llista = new LlistaAllotjaments();
@@ -50,11 +55,10 @@ public abstract class Acces implements InAcces{
 
     // elsa no se si al toString els allotjaments s'ha de posar aixi (està al final):
     public String toString(){
-        return "Nom: " + nom + ", Accesibilitat: " + accesibilitat + ", Estat: " + estat + ", Allotjaments: " + allotjaments;
+        return "Acces{nom=" + nom + ", estat=" + estat + "}";
     }
 
     @Override
-    public boolean isAccessibilitat() {
-        return accesibilitat;
-    }
+    public abstract boolean isAccessibilitat();
+
 }

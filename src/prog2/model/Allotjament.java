@@ -1,9 +1,11 @@
 package prog2.model;
 
+import java.io.Serializable;
+
 /** Definició de la classe que representa
  * els allotjaments. Queda definida per la seva interfície InAllotjament.
  * **/
-public abstract class Allotjament implements InAllotjament {
+public abstract class Allotjament implements InAllotjament, Serializable {
     //Declaració dels atributs
     private String nom; //Nom de l'allotjament
     private String identificador; //Nom de l'identificador de l'allotjament

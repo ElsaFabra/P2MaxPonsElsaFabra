@@ -1,23 +1,30 @@
 package prog2.model;
 
-public class CarreteraAsfaltada extends AccesAsfalt{
-    private double maximPes;
+import java.io.Serializable;
 
-    public CarreteraAsfaltada(double maximPes, double metresQuadrats, String nom, boolean accessibilitat, boolean estat, LlistaAllotjaments llistaAllotjaments) {
-        super(metresQuadrats, nom, accessibilitat, estat, llistaAllotjaments);
-        this.maximPes = maximPes;
+public class CarreteraAsfaltada extends AccesAsfalt implements Serializable {
+    private double pesMaxim;
+
+    public CarreteraAsfaltada(String nom, boolean estat, double metresQuadrats, double pesMaxim) {
+        super(nom, estat, metresQuadrats);
+        this.pesMaxim = pesMaxim;
     }
 
-    public double getMaximPes() {
-        return maximPes;
+    public double getPesMaxim() {
+        return pesMaxim;
     }
 
-    public void setMaximPes(double maximPes) {
-        this.maximPes = maximPes;
+    public void setMaximPes(double pesMaxim) {
+        this.pesMaxim = pesMaxim;
     }
 
     @Override
     public boolean isAccessibilitat() {
         return true;
+    }
+
+    @Override
+    public String toString(){
+        return "CarreteraAsfalt{" + super.toString() + ", pesMaxim=" + pesMaxim + "}";
     }
 }

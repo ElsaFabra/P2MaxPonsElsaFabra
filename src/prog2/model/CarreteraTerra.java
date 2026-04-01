@@ -1,10 +1,12 @@
 package prog2.model;
 
-public class CarreteraTerra extends AccesTerra{
+import java.io.Serializable;
+
+public class CarreteraTerra extends AccesTerra implements Serializable {
     private double amplada;
 
-    public CarreteraTerra(double amplada, double longitud, String nom, boolean accessibilitat, boolean estat, LlistaAllotjaments llistaAllotjaments) {
-        super(longitud, nom, accessibilitat, estat, llistaAllotjaments);
+    public CarreteraTerra(String nom, boolean estat, double longitud, double amplada) {
+        super(nom, estat, longitud);
         this.amplada = amplada;
     }
 
@@ -20,5 +22,11 @@ public class CarreteraTerra extends AccesTerra{
     public boolean isAccessibilitat() {
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "CarreteraTerra{" + super.toString() + ", amplada=" + amplada + "}";
+    }
 }
+
 

@@ -1,16 +1,22 @@
 package prog2.model;
 
-public class CamiTerra extends AccesTerra{
+import java.io.Serializable;
+
+public class CamiTerra extends AccesTerra implements Serializable {
 
 
-    public CamiTerra(double longitud, String nom, boolean accessibilitat, boolean estat, LlistaAllotjaments llistaAllotjaments) {
-        super(longitud, nom, accessibilitat, estat, llistaAllotjaments);
+    public CamiTerra(String nom, boolean estat, double longitud) {
+        super(nom, estat, longitud);
     }
 
+    @Override
     public boolean isAccessibilitat(){
-
         return false;
     }
-}
 
+    @Override
+    public String toString(){
+        return "CamiTerra{" + super.toString() + "}";
+    }
+}
 

@@ -1,9 +1,11 @@
 package prog2.model;
 
+import java.io.Serializable;
+
 /** Definició de la subclasse d'Allotjament que representa
  * la Casa. Té herència d'Allotjament.
  * **/
-public abstract class Casa extends Allotjament{
+public abstract class Casa extends Allotjament implements Serializable {
     //Declaració dels atributs privats de Casa
     private String mida; //Mida de la casa
     private int habitacions; //Nombre d'habitacions

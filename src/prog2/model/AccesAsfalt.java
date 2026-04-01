@@ -1,10 +1,13 @@
 package prog2.model;
 
-public abstract class AccesAsfalt extends Acces{
+import java.io.Serializable;
+
+public abstract class AccesAsfalt extends Acces implements Serializable {
     private double metresQuadrats;
 
-    public AccesAsfalt(double metresQuadrats, String nom, boolean accessibilitat, boolean estat, LlistaAllotjaments llistaAllotjaments) {
-        super(nom, accessibilitat, estat, llistaAllotjaments);
+    public AccesAsfalt(String nom, boolean estat, double metresQuadrats) {
+        super(nom, estat);
+        this.metresQuadrats = metresQuadrats;
     }
 
     public double getMetresQuadrats() {
@@ -15,4 +18,8 @@ public abstract class AccesAsfalt extends Acces{
         this.metresQuadrats = metresQuadrats;
     }
 
+    @Override
+    public String toString(){
+        return super.toString() + ", metresQuadrats=" + metresQuadrats;
+    }
 }
