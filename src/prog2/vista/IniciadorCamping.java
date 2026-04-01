@@ -4,6 +4,16 @@ package prog2.vista;
  *
  * @author lauraigual
  */
+
+// borrar comentari -->
+
+/* Aquesta classe té com a responsabilitat llançar el bucle principal de l’aplicació.
+La classe de la vista IniciadorCamping té un mètode estàtic main() on es crea un
+objecte de tipus VistaCamping anomenat vistaCamping. Desprès crida el mètode
+gestioCamping() de l’objecte vistaCamping, on es troba el bucle principal de
+l’aplicació.
+ */
+
 public class IniciadorCamping {
     
     /**

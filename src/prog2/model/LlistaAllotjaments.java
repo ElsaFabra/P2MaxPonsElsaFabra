@@ -2,11 +2,19 @@ package prog2.model;
 
 import prog2.vista.ExcepcioCamping;
 
+import java.util.ArrayList;
+
 public class LlistaAllotjaments implements InLlistaAllotjaments{
+    private ArrayList<Allotjament> allotjaments;
+
+    public LlistaAllotjaments() {
+        this.allotjaments = new ArrayList<>();
+    }
+
     @Override
     public void afegirAllotjament(
             Allotjament allotjament) throws ExcepcioCamping {
-
+        allotjaments.add(allotjament);
     }
 
     @Override
