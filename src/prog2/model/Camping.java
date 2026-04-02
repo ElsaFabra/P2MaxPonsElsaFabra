@@ -113,7 +113,7 @@ public class Camping implements InCamping, Serializable{
         } catch (ClassNotFoundException e) {
             throw new ExcepcioCamping("Error al carregar la classe: " + e.getMessage());
         } catch (IOException e) {
-            throw new ExcepcioCamping("Error al carregar el càmping: " + e.getMessage());
+            throw new UnsupportedOperationException("Aquest mètode està implementat a la classe Camping");
         } finally {
             try {
                 assert ois != null;
