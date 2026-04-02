@@ -29,7 +29,13 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
 
     @Override
     public void actualitzaEstatAccessos() throws ExcepcioCamping {
-
+        for (Acces acces: accessos){
+            if(!acces.getAAllotjaments().containsAllotjamentOperatiu()){
+                acces.setEstat(false);
+            } else {
+                acces.setEstat(true);
+            }
+        }
     }
 
     @Override
