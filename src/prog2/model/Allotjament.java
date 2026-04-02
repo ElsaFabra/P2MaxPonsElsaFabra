@@ -100,7 +100,6 @@ public abstract class Allotjament implements InAllotjament, Serializable {
     public void obrirAllotjament() {
         this.setEstatAllotjament(true);
         this.setEstatIluminacio("100");
-
     }
 
 }

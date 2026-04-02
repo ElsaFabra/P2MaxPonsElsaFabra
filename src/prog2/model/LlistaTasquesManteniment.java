@@ -33,16 +33,33 @@ public class LlistaTasquesManteniment implements InLlistaTasquesManteniment, Ser
 
     @Override
     public void completarTascaManteniment(TascaManteniment tasca) throws ExcepcioCamping {
-
+        if (!tasques.contains(tasca)){
+            throw new ExcepcioCamping("No existeix la tasca amb numero " + tasca.getNum());
+        }
+        tasca.getAllotjament().obrirAllotjament();
+        tasques.remove(tasca);
     }
 
     @Override
     public String llistarTasquesManteniment() throws ExcepcioCamping {
-        return "";
+        if(tasques.isEmpty()) {
+            throw new ExcepcioCamping("No hi ha tasques de manteniment actives.");
+        }
+        String result = "";
+        for (TascaManteniment t: tasques){
+            result += t.toString();
+        }
+        return result;
     }
 
     @Override
     public TascaManteniment getTascaManteniment(int num) throws ExcepcioCamping {
-        return null;
+        for(TascaManteniment t: tasques){
+            if (t.getNum() == num){
+                return t;
+            }
+        }
+
+        throw new ExcepcioCamping("No existeix cap tasca amb el numero " + num);
     }
 }
