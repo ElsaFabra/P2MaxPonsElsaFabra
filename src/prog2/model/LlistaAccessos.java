@@ -14,6 +14,11 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
 
     @Override
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
+        for (Acces a: accessos){
+            if(a.getNom().equals(acc.getNom())){
+                throw new ExcepcioCamping("Ja esxisteix un accés amb el nom " + acc.getNom());
+            }
+        }
         accessos.add(acc);
     }
 

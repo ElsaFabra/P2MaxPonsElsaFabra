@@ -1,5 +1,7 @@
 package prog2.model;
 import prog2.vista.ExcepcioCamping;
+
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,7 +10,7 @@ import java.util.Iterator;
  * un càmping. Queda definida per la seva interfície InCamping.
  * **/
 
-public class Camping implements InCamping{
+public class Camping implements InCamping, Serializable{
     private String nom;
     private LlistaAllotjaments llistaAllotjaments;
     private LlistaAccessos llistaAccessos;
@@ -28,42 +30,100 @@ public class Camping implements InCamping{
 
     @Override
     public String llistarAllotjaments(String estat) throws ExcepcioCamping {
-        return "";
+        return llistaAllotjaments.llistarAllotjaments(estat);
     }
 
     @Override
     public String llistarAccessos(String infoEstat) throws ExcepcioCamping {
-        return "";
+        return llistaAccessos.llistarAccessos(infoEstat.equals("obert"));
     }
 
     @Override
     public String llistarTasquesManteniment() throws ExcepcioCamping {
-        return "";
+        return llistaTasques.llistarTasquesManteniment();
     }
 
     @Override
     public void afegirTascaManteniment(int num, String tipus, String idAllotjament, String data, int dies) throws ExcepcioCamping {
-
+        Allotjament id = llistaAllotjaments.getAllotjament(idAllotjament);
+        llistaTasques.afegirTascaManteniment(num, tipus, id, data, dies);
+        llistaAccessos.actualitzaEstatAccessos();
     }
 
     @Override
     public void completarTascaManteniment(int num) throws ExcepcioCamping {
-
+        TascaManteniment tasca = llistaTasques.getTascaManteniment(num);
+        llistaTasques.completarTascaManteniment(tasca);
+        llistaAccessos.actualitzaEstatAccessos();
     }
 
     @Override
     public int calculaAccessosNoAccessibles() {
-        return 0;
+        try{
+            return llistaAccessos.calculaAccessosNoAccessibles();
+        } catch (ExcepcioCamping e) {
+            return 0;
+        }
     }
 
     @Override
     public float calculaMetresTerra() {
-        return 0;
+        try {
+            return llistaAccessos.calculaMetresTerra();
+        } catch (ExcepcioCamping e){
+            return 0;
+        }
     }
 
     @Override
     public void save(String camiDesti) throws ExcepcioCamping {
+        File fitxer = new File(camiDesti);
+        FileOutputStream fout = null;
+        ObjectOutputStream oos = null;
 
+        try{
+            fout = new FileOutputStream(fitxer);
+            oos = new ObjectOutputStream(fout);
+            oos.writeObject(this);
+        }catch(IOException e){
+            throw new ExcepcioCamping("Error al guardar el camping: " + e.getMessage());
+        }finally{
+            try{
+                assert oos != null;
+                oos.close();
+                fout.close();
+            }catch(IOException e){
+                throw new ExcepcioCamping("Error al tancar el fitxer: " + e.getMessage());
+            }
+        }
+    }
+
+    public static Camping carregar(String camiOrigen) throws ExcepcioCamping {
+        Camping camping = null;
+        File fitxer = new File(camiOrigen);
+        FileInputStream fin = null;
+        ObjectInputStream ois = null;
+
+        try{
+            fin = new FileInputStream(fitxer);
+            ois = new ObjectInputStream(fin);
+            camping = (Camping) ois.readObject();
+        } catch (FileNotFoundException e) {
+            throw new ExcepcioCamping("No s'ha trobat el fitxer: " + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new ExcepcioCamping("Error al carregar la classe: " + e.getMessage());
+        } catch (IOException e) {
+            throw new ExcepcioCamping("Error al carregar el càmping: " + e.getMessage());
+        } finally {
+            try {
+                assert ois != null;
+                ois.close();
+                fin.close();
+            } catch (IOException e) {
+                throw new ExcepcioCamping("Error al tancar el fitxer: " + e.getMessage());
+            }
+        }
+        return camping;
     }
 
     @Override
