@@ -29,7 +29,16 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
 
     @Override
     public String llistarAccessos(boolean estat) throws ExcepcioCamping {
-    return "";
+        String resultat = "";
+        for(Acces acc: accessos){
+            if(acc.getEstat() == estat){
+                resultat = resultat + acc.toString() + "\n";
+            }
+        }
+        if (resultat.isEmpty()) {
+            throw new ExcepcioCamping("No hi ha accessos amb aquest estat");
+        }
+        return resultat;
     }
 
     @Override
@@ -45,11 +54,23 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
 
     @Override
     public int calculaAccessosNoAccessibles() throws ExcepcioCamping {
-        return 0;
+        int accNo = 0;
+        for (Acces acc: accessos){
+            if(!acc.isAccessibilitat()){
+                accNo++;
+            }
+        }
+        return accNo;
     }
 
     @Override
     public float calculaMetresTerra() throws ExcepcioCamping {
-        return 0;
+        float metres = 0;
+        for (Acces acc: accessos){
+            if(acc instanceof AccesTerra){
+                metres += ((AccesTerra) acc).getLongitud();
+            }
+        }
+        return metres;
     }
 }
