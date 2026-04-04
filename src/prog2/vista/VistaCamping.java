@@ -127,6 +127,7 @@ public class VistaCamping {
 
                 case COMPLETAR_TASCA:
                     try {
+                        System.out.println(camping.llistarTasquesManteniment());
                         System.out.print("Número de la tasca a completar: ");
                         int num = sc.nextInt();
                         sc.nextLine();

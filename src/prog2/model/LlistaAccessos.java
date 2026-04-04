@@ -16,7 +16,7 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
     public void afegirAcces(Acces acc) throws ExcepcioCamping {
         for (Acces a: accessos){
             if(a.getNom().equals(acc.getNom())){
-                throw new ExcepcioCamping("Ja esxisteix un accés amb el nom " + acc.getNom());
+                throw new ExcepcioCamping("Ja esxisteix un acces amb el nom " + acc.getNom());
             }
         }
         accessos.add(acc);
@@ -68,7 +68,7 @@ public class LlistaAccessos implements InLlistaAccessos, Serializable {
         float metres = 0;
         for (Acces acc: accessos){
             if(acc instanceof AccesTerra){
-                metres += ((AccesTerra) acc).getLongitud();
+                metres += (float) ((AccesTerra) acc).getLongitud();
             }
         }
         return metres;
