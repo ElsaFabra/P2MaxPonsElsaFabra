@@ -99,7 +99,7 @@ public abstract class Allotjament implements InAllotjament, Serializable {
     @Override
     public void obrirAllotjament() {
         this.setEstatAllotjament(true);
-        this.setEstatIluminacio("100");
+        this.setEstatIluminacio("100%");
     }
 
 }

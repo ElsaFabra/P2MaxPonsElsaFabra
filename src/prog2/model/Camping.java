@@ -89,7 +89,8 @@ public class Camping implements InCamping, Serializable{
             throw new ExcepcioCamping("Error al guardar el camping: " + e.getMessage());
         }finally{
             try{
-                assert oos != null;
+                if (oos != null) oos.close();
+                if (fout != null) fout.close();
                 oos.close();
                 fout.close();
             }catch(IOException e){
@@ -113,12 +114,11 @@ public class Camping implements InCamping, Serializable{
         } catch (ClassNotFoundException e) {
             throw new ExcepcioCamping("Error al carregar la classe: " + e.getMessage());
         } catch (IOException e) {
-            throw new UnsupportedOperationException("Aquest mètode està implementat a la classe Camping");
+            throw new ExcepcioCamping("Error al carregar el càmping: " + e.getMessage());
         } finally {
             try {
-                assert ois != null;
-                ois.close();
-                fin.close();
+                if (ois != null) ois.close();
+                if (fin != null) fin.close();
             } catch (IOException e) {
                 throw new ExcepcioCamping("Error al tancar el fitxer: " + e.getMessage());
             }

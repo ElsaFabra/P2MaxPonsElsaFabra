@@ -2,6 +2,7 @@ package prog2.vista;
 
 import prog2.model.Camping;
 import prog2.model.Menu;
+
 import java.util.Scanner;
 
 public class VistaCamping {

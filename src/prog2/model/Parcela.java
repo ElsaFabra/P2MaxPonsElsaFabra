@@ -59,17 +59,4 @@ public class Parcela extends Allotjament implements Serializable {
     public String toString(){
         return super.toString() + " Parcela{mida = " + mida + ", connexio electrica = " + connexioElectrica + "}";
     }
-
-    @Override
-    public void tancarAllotjament(TascaManteniment tasca) {
-        this.setEstatAllotjament(true);
-        this.setEstatIluminacio(tasca.getIluminacioAllotjament());
-    }
-
-    @Override
-    public void obrirAllotjament() {
-        this.setEstatAllotjament(true);
-        this.setEstatIluminacio("100%");
-
-    }
 }
