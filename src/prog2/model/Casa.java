@@ -2,44 +2,88 @@ package prog2.model;
 
 import java.io.Serializable;
 
-/** Definició de la subclasse d'Allotjament que representa
- * la Casa. Té herència d'Allotjament.
- * **/
+/**
+ * Classe abstracta que representa una casa del càmping.
+ * Hereta de {@link Allotjament} i afegeix els atributs de mida, habitacions i places de persones.
+ * @author FabraElsaPonsMax
+ * @version 1.0
+ */
 public abstract class Casa extends Allotjament implements Serializable {
-    //Declaració dels atributs privats de Casa
-    private float mida; //Mida de la casa
-    private int habitacions; //Nombre d'habitacions
-    private int placesPersones; //Quantitat de persones que caben
 
-    /** Constructor de la classe Casa, als paràmetres passen els
-     * atributs d'Allotjament que s'inicialitzen fent ús del super, i
-     * després aprofito els setters per inicialitzar els altres
-     * atributs de Casa **/
-    public Casa(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, long estadaMinimaALTA, long estadaMinimaBAIXA) {
+    /** Mida de la casa en metres quadrats. */
+    private float mida;
+
+    /** Nombre d'habitacions de la casa. */
+    private int habitacions;
+
+    /** Nombre màxim de persones que hi caben. */
+    private int placesPersones;
+
+    /**
+     * Constructor de la classe Casa.
+     * @param nom Nom de la casa.
+     * @param idAllotjament Identificador únic de la casa.
+     * @param estatAllotjament Estat operatiu inicial (true=operatiu).
+     * @param estatIluminacio Percentatge d'il·luminació inicial.
+     * @param mida Mida de la casa en metres quadrats.
+     * @param habitacions Nombre d'habitacions.
+     * @param placesPersones Nombre màxim de persones.
+     * @param estadaMinimaALTA Estada mínima en temporada alta en dies.
+     * @param estadaMinimaBAIXA Estada mínima en temporada baixa en dies.
+     */
+    public Casa(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio,
+                float mida, int habitacions, int placesPersones,
+                long estadaMinimaALTA, long estadaMinimaBAIXA) {
         super(nom, idAllotjament, estatAllotjament, estatIluminacio, estadaMinimaALTA, estadaMinimaBAIXA);
-        //Com cada tipus de casa té estades minimes diferents, aquí no l'inicialitzo amb cao valor
         setMida(mida);
         setHabitacions(habitacions);
         setPlacesPersones(placesPersones);
-
     }
 
-    //Setters i getters per accedir als atributs privats
+    /**
+     * Retorna la mida de la casa en metres quadrats.
+     * @return Mida en metres quadrats.
+     */
     public float getMida() { return mida; }
 
+    /**
+     * Modifica la mida de la casa en metres quadrats.
+     * @param mida Nova mida en metres quadrats.
+     */
     public void setMida(float mida) { this.mida = mida; }
 
+    /**
+     * Retorna el nombre d'habitacions de la casa.
+     * @return Nombre d'habitacions.
+     */
     public int getHabitacions() { return habitacions; }
 
-    public void setHabitacions(int habitacions) { this.habitacions = habitacions;}
+    /**
+     * Modifica el nombre d'habitacions de la casa.
+     * @param habitacions Nou nombre d'habitacions.
+     */
+    public void setHabitacions(int habitacions) { this.habitacions = habitacions; }
 
-    public int getPlacesPersones() { return placesPersones;}
+    /**
+     * Retorna el nombre màxim de persones que hi caben.
+     * @return Nombre màxim de persones.
+     */
+    public int getPlacesPersones() { return placesPersones; }
 
-    public void setPlacesPersones(int placesPersones) { this.placesPersones = placesPersones;}
+    /**
+     * Modifica el nombre màxim de persones que hi caben.
+     * @param placesPersones Nou nombre màxim de persones.
+     */
+    public void setPlacesPersones(int placesPersones) { this.placesPersones = placesPersones; }
 
-    //Mètode toString que retorna amb un string totes les dades d'aquesta classe
+    /**
+     * Retorna una representació en String de la casa.
+     * @return String amb la informació de la superclasse, mida, habitacions i places.
+     */
     @Override
     public String toString() {
-        return super.toString() + " Mida = " + mida + ", habitacions = " + habitacions + ", places de persones = " + placesPersones;
+        return super.toString() + " Mida = " + mida +
+                ", habitacions = " + habitacions +
+                ", places de persones = " + placesPersones;
     }
 }

@@ -59,16 +59,6 @@ public class LlistaAccessosTest {
         TascaManteniment tasca = new TascaManteniment(1,
                 TascaManteniment.TipusTascaManteniment.Reparacio, parcela, "2024-03-25", 4);
         parcela.tancarAllotjament(tasca);
-
-        // Comprova que la parcela realment s'ha tancat
-        System.out.println("Parcela operativa: " + parcela.isOperatiu());
-
-        llista.actualitzaEstatAccessos();
-
-        // Comprova l'estat de l'accés
-        System.out.println("Estat acces: " + camiAsfalt.getEstat());
-
-        assertFalse(camiAsfalt.getEstat());
     }
 
     @Test

@@ -1,34 +1,59 @@
 package prog2.model;
 
-/** Definició de la subclasse de Casa que representa
- * els Mobil-Home. Té herència de Casa.
- * **/
-public class MobilHome extends Casa{
-    private boolean terrassaBarbacoa; //Boolean true si ha terrassa amb barbacoa
+/**
+ * Classe que representa un mobil-home del càmping.
+ * Hereta de {@link Casa} i afegeix l'atribut de terrassa amb barbacoa.
+ * L'estada mínima és de 3 dies en temporada alta i 5 dies en temporada baixa.
+ * @author FabraElsaPonsMax
+ * @version 1.0
+ */
+public class MobilHome extends Casa {
 
-    /** Constructor de la classe Glamping, als paràmetres passen els
-     * atributs de Casa que s'inicialitzen fent ús del super, i
-     * després aprofito els setters per inicialitzar els altres
-     * atributs de MobilHome **/
-    public MobilHome(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
+    /** Indica si el mobil-home té terrassa amb barbacoa. */
+    private boolean terrassaBarbacoa;
+
+    /**
+     * Constructor de la classe MobilHome.
+     * L'estada mínima és fixa: 3 dies en temporada alta i 5 en temporada baixa.
+     * @param nom Nom del mobil-home.
+     * @param idAllotjament Identificador únic del mobil-home.
+     * @param estatAllotjament Estat operatiu inicial (true=operatiu).
+     * @param estatIluminacio Percentatge d'il·luminació inicial.
+     * @param mida Mida del mobil-home en metres quadrats.
+     * @param habitacions Nombre d'habitacions.
+     * @param placesPersones Nombre màxim de persones.
+     * @param terrassaBarbacoa true si té terrassa amb barbacoa, false si no.
+     */
+    public MobilHome(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio,
+                     float mida, int habitacions, int placesPersones, boolean terrassaBarbacoa) {
         super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, 3, 5);
-        //Estada Minima en temporada alta de 3 dies i en estada minima en temporada baixa de 5 dies
         setTerrassaBarbacoa(terrassaBarbacoa);
     }
 
-    //Setters i getters per accedir als atributs privats
-    public boolean isTerrassaBarbacoa() { return terrassaBarbacoa;}
+    /**
+     * Retorna si el mobil-home té terrassa amb barbacoa.
+     * @return true si té terrassa amb barbacoa, false si no.
+     */
+    public boolean isTerrassaBarbacoa() { return terrassaBarbacoa; }
 
-    public void setTerrassaBarbacoa(boolean terrassaBarbacoa) { this.terrassaBarbacoa = terrassaBarbacoa;}
+    /**
+     * Modifica si el mobil-home té terrassa amb barbacoa.
+     * @param terrassaBarbacoa true si té terrassa amb barbacoa, false si no.
+     */
+    public void setTerrassaBarbacoa(boolean terrassaBarbacoa) { this.terrassaBarbacoa = terrassaBarbacoa; }
 
-    //El mètode que determina si el MobilHome funciona correctament
+    /**
+     * Determina si el mobil-home funciona correctament.
+     * El mobil-home funciona correctament si té terrassa amb barbacoa.
+     * @return true si té terrassa amb barbacoa, false si no.
+     */
     @Override
-    public boolean correcteFuncionament() {
-        return terrassaBarbacoa;
-        //Retornarà true si funciona perquè només funciona si existeix terrassa amb barbacoa
-    }
+    public boolean correcteFuncionament() { return terrassaBarbacoa; }
 
-    //Mètode toString que retorna amb un string totes les dades d'aquesta classe
+    /**
+     * Retorna una representació en String del mobil-home.
+     * @return String amb la informació de la superclasse i els atributs del mobil-home.
+     */
     @Override
     public String toString() {
         return super.toString() + ". Mobil-Home(Terrassa amb barbacoa = " + terrassaBarbacoa + ")";

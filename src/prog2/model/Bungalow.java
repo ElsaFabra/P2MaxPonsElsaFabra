@@ -1,73 +1,115 @@
 package prog2.model;
 
-/** Definició de la subclasse de Casa que representa
- * els Bungalows. Té herència de Casa.
- * **/
-public class Bungalow extends Casa{
-    //Declaració dels atributs privats de Bungalow
-    private int placesParquing; //Nombre de places de pàrquing que hi ha
-    private boolean terrassa; // Boolean true si hi ha terrassa
-    private boolean tv; // Boolean true si hi ha televisió
-    private boolean aireFred; // Boolean true si hi ha sistema d'aire fred
+/**
+ * Classe que representa un bungalow del càmping.
+ * Hereta de {@link Casa} i afegeix places de pàrquing, terrassa, televisió i aire fred.
+ * L'estada mínima és de 7 dies en temporada alta i 4 dies en temporada baixa.
+ * @author FabraElsaPonsMax
+ * @version 1.0
+ */
+public class Bungalow extends Casa {
 
-    /** Constructor de la classe Bungalow, als paràmetres passen els
-     * atributs de casa que s'inicialitzen fent ús del súper, i
-     * després aprofito els setters per inicialitzar els altres
-     * atributs de Bungalow. **/
-    public Bungalow(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio, float mida, int habitacions, int placesPersones, int placesParquing, boolean terrassa, boolean tv, boolean aireFred){
+    /** Nombre de places de pàrquing del bungalow. */
+    private int placesParquing;
+
+    /** Indica si el bungalow té terrassa. */
+    private boolean terrassa;
+
+    /** Indica si el bungalow té televisió. */
+    private boolean tv;
+
+    /** Indica si el bungalow té sistema d'aire fred. */
+    private boolean aireFred;
+
+    /**
+     * Constructor de la classe Bungalow.
+     * L'estada mínima és fixa: 7 dies en temporada alta i 4 en temporada baixa.
+     * @param nom Nom del bungalow.
+     * @param idAllotjament Identificador únic del bungalow.
+     * @param estatAllotjament Estat operatiu inicial (true=operatiu).
+     * @param estatIluminacio Percentatge d'il·luminació inicial.
+     * @param mida Mida del bungalow en metres quadrats.
+     * @param habitacions Nombre d'habitacions.
+     * @param placesPersones Nombre màxim de persones.
+     * @param placesParquing Nombre de places de pàrquing.
+     * @param terrassa true si té terrassa, false si no.
+     * @param tv true si té televisió, false si no.
+     * @param aireFred true si té sistema d'aire fred, false si no.
+     */
+    public Bungalow(String nom, String idAllotjament, boolean estatAllotjament, String estatIluminacio,
+                    float mida, int habitacions, int placesPersones, int placesParquing,
+                    boolean terrassa, boolean tv, boolean aireFred) {
         super(nom, idAllotjament, estatAllotjament, estatIluminacio, mida, habitacions, placesPersones, 7, 4);
-        //Estada Minima en temporada alta de 7 dies i en estada minima en temporada baixa de 4 dies
         setPlacesParquing(placesParquing);
         setTerrassa(terrassa);
         setTv(tv);
         setAireFred(aireFred);
     }
 
-    //Setters i getters per accedir als atributs privats
-    public int getPlacesParquing() {
-        return placesParquing;
-    }
+    /**
+     * Retorna el nombre de places de pàrquing.
+     * @return Nombre de places de pàrquing.
+     */
+    public int getPlacesParquing() { return placesParquing; }
 
-    public void setPlacesParquing(int placesParquing) {
-        this.placesParquing = placesParquing;
-    }
+    /**
+     * Modifica el nombre de places de pàrquing.
+     * @param placesParquing Nou nombre de places de pàrquing.
+     */
+    public void setPlacesParquing(int placesParquing) { this.placesParquing = placesParquing; }
 
-    public boolean isTerrassa() {
-        return terrassa;
-    }
+    /**
+     * Retorna si el bungalow té terrassa.
+     * @return true si té terrassa, false si no.
+     */
+    public boolean isTerrassa() { return terrassa; }
 
-    public void setTerrassa(boolean terrassa) {
-        this.terrassa = terrassa;
-    }
+    /**
+     * Modifica si el bungalow té terrassa.
+     * @param terrassa true si té terrassa, false si no.
+     */
+    public void setTerrassa(boolean terrassa) { this.terrassa = terrassa; }
 
-    public boolean isTv() {
-        return tv;
-    }
+    /**
+     * Retorna si el bungalow té televisió.
+     * @return true si té televisió, false si no.
+     */
+    public boolean isTv() { return tv; }
 
-    public void setTv(boolean tv) {
-        this.tv = tv;
-    }
+    /**
+     * Modifica si el bungalow té televisió.
+     * @param tv true si té televisió, false si no.
+     */
+    public void setTv(boolean tv) { this.tv = tv; }
 
-    public boolean isAireFred() {
-        return aireFred;
-    }
+    /**
+     * Retorna si el bungalow té sistema d'aire fred.
+     * @return true si té aire fred, false si no.
+     */
+    public boolean isAireFred() { return aireFred; }
 
-    public void setAireFred(boolean aireFred) {
-        this.aireFred = aireFred;
-    }
+    /**
+     * Modifica si el bungalow té sistema d'aire fred.
+     * @param aireFred true si té aire fred, false si no.
+     */
+    public void setAireFred(boolean aireFred) { this.aireFred = aireFred; }
 
-    //El mètode que determina si el Bungalow funciona correctament
+    /**
+     * Determina si el bungalow funciona correctament.
+     * El bungalow funciona correctament si té sistema d'aire fred.
+     * @return true si té aire fred, false si no.
+     */
     @Override
-    public boolean correcteFuncionament() {
-        return aireFred;
-    }
-    //Retornarà true si funciona perquè només funciona si existeix sistema d'aire fred
+    public boolean correcteFuncionament() { return aireFred; }
 
-    //Mètode toString que retorna amb un string totes les dades d'aquesta classe
+    /**
+     * Retorna una representació en String del bungalow.
+     * @return String amb la informació de la superclasse i els atributs del bungalow.
+     */
     @Override
-    public String toString(){
+    public String toString() {
         return super.toString() + ". Bungalow{places de parquing = " + placesParquing +
-                ", terrassa = " + terrassa + ", televisio = " + tv + ", aire fred = " + aireFred + "}";
+                ", terrassa = " + terrassa + ", televisio = " + tv +
+                ", aire fred = " + aireFred + "}";
     }
 }
-
